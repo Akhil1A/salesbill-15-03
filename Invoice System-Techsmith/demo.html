@@ -1,0 +1,27 @@
+fetch('https://tsmithy.in/SaveBillAPI/api/SaveBill', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(jsonData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle successful API response
+    if (data.errorstatus === 0) {
+      alert('Data saved successfully. Bill number: ' + data.BillNumber);
+      // Optionally, reset the form or perform any other action upon successful save
+    } else {
+      alert('Failed to save data: ' + data.statusmessage);
+    }
+  })
+  .catch(error => {
+    // Handle API request failure
+    console.error('Failed to communicate with the server:', error);
+    alert('Failed to communicate with the server. Please try again later.');
+  });
+
+
+  .then(data => {
+    
+})
